@@ -20,7 +20,7 @@ class Main extends CI_Controller
     // ---------------------------------------------------------
 
     function index(){
-        redirect("dashboard");
+        redirect( base_url("index.php/main/dashboard") );
     }
 
     function dashboard(){
@@ -40,7 +40,7 @@ class Main extends CI_Controller
 
         $this->load->view('invoice_view/templates/header', $metadata);
         $this->load->view('invoice_view/templates/sidebar',$metadata);
-        $this->load->view('invoice_view/invoices/viewinvoice',$metadata);
+        $this->load->view('invoice_view/invoices/viewInvoice',$metadata);
         $this->load->view('invoice_view/templates/footer',$metadata);
     }
 
@@ -50,7 +50,7 @@ class Main extends CI_Controller
 
         $this->load->view('invoice_view/templates/header', $metadata);
         $this->load->view('invoice_view/templates/sidebar',$metadata);
-        $this->load->view('invoice_view/invoices/addinvoice',$metadata);
+        $this->load->view('invoice_view/invoices/addInvoice',$metadata);
         $this->load->view('invoice_view/templates/footer',$metadata);
     }
 
@@ -61,7 +61,7 @@ class Main extends CI_Controller
 
         $hasil = $this->db->query("INSERT INTO invoices (vendor_id, jatuhTempo, noAkun) VALUES (?,?,?)",[$vendorid, $jatuhtempo, $nomorakun]);
         if ($hasil) {
-            redirect("viewInvoice");
+            redirect( base_url("index.php/main/viewInvoice") );
         }else{
             echo "Something went wrong";
         }
@@ -75,7 +75,7 @@ class Main extends CI_Controller
 
         $this->load->view('invoice_view/templates/header', $metadata);
         $this->load->view('invoice_view/templates/sidebar',$metadata);
-        $this->load->view('invoice_view/invoices/addinvoice_detail',$metadata);
+        $this->load->view('invoice_view/invoices/addInvoice_Detail',$metadata);
         $this->load->view('invoice_view/templates/footer',$metadata);
     }
 
@@ -87,7 +87,7 @@ class Main extends CI_Controller
 
         $hasil = $this->db->query("INSERT INTO invoice_detail (invoice, activity, `description`, harga) VALUES (?,?,?,?)",[$vendorid, $activity, $desc, $cost]);
         if ($hasil) {
-            redirect("viewInvoice");
+            redirect( base_url("index.php/main/viewInvoice") );
         }else{
             echo "Something went wrong";
         }
@@ -126,8 +126,8 @@ class Main extends CI_Controller
         $email  = $this->input->post('emailvendor');
 
         $hasil = $this->db->query("INSERT INTO vendors (nama, alamat, telp, email) VALUES (?,?,?,?)",[$nama, $alamat, $telp, $email]);
-        if ($hasil) {
-            redirect("addVendors");
+        if ($hasil) {            
+            redirect( base_url("index.php/main/addVendors") );
         }else{
             echo "Something went wrong";
         }
@@ -142,7 +142,7 @@ class Main extends CI_Controller
 
         $result = $this->db->query("UPDATE vendors SET nama=?,alamat=?,telp=?,email=? WHERE id=?",[$nama,$alamat,$telp,$email,$id]);
         if($result){
-            redirect("addVendors");
+            redirect( base_url("index.php/main/addVendors") );
         }else{
             echo "Something went wrong";
         }
@@ -152,7 +152,7 @@ class Main extends CI_Controller
         $id = $this->input->get('vendorid');
         $result = $this->db->query("UPDATE vendors SET status='inactive' WHERE id=?",[$id]);
         if($result){
-            redirect("addVendors");
+            redirect( base_url("index.php/main/addVendors") );
         }else{
             echo "Something went wrong";
         }
