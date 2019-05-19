@@ -6,8 +6,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Invoice
-        <small>#007612</small>
+        Vendor
+        <small>Manager</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -69,7 +69,7 @@
                 <td> <a onclick="injectVendor(<?= "'".$vendor['id']."','".$vendor['nama']."','".str_replace("\n"," ",$vendor['alamat'])."','".$vendor['telp']."','".$vendor['email']."'" ?>)"> <?= substr($vendor['alamat'],0,20).'...'?> </a></td>
                 <td> <a onclick="injectVendor(<?= "'".$vendor['id']."','".$vendor['nama']."','".str_replace("\n"," ",$vendor['alamat'])."','".$vendor['telp']."','".$vendor['email']."'" ?>)"> <?= $vendor['telp']?> </a></td>
                 <td> <a onclick="injectVendor(<?= "'".$vendor['id']."','".$vendor['nama']."','".str_replace("\n"," ",$vendor['alamat'])."','".$vendor['telp']."','".$vendor['email']."'" ?>)"> <?= $vendor['email']?> </a></td>
-                <td> <a href="deleteVendors_engine?vendorid=<?= $vendor['id']?>"> Delete</a> </td>
+                <td> <a class="btn btn-danger" href="deleteVendors_engine?vendorid=<?= $vendor['id']?>"> Delete</a> </td>
               </tr>
               <?php endforeach?>
             </tbody>

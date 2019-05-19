@@ -27,7 +27,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
+        <li class="treeview <?php if ($page == 'track'){echo "active";}?>">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
@@ -35,12 +35,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?= base_url(); ?>/assets/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="<?= base_url(); ?>/assets/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <li <?php if ($subpage == 'track'){echo 'class="active"';}?>><a href="<?= base_url(); ?>"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
           </ul>
         </li>
 
-        <li class="treeview">
+        <li class="treeview <?php if ($page == 'invoice'){echo "active";}?>">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Invoice</span>
             <span class="pull-right-container">
@@ -48,12 +47,23 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?= base_url(); ?>/assets/index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="<?= base_url(); ?>/assets/index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <li <?php if ($subpage == 'addinvoice'){echo 'class="active"';}?>><a href="addInvoice"><i class="fa fa-circle-o"></i> Create new Invoice </a></li>
+            <li <?php if ($subpage == 'viewinvoice'){echo 'class="active"';}?>><a href="viewInvoice"><i class="fa fa-circle-o"></i> View Invoice List </a></li>
           </ul>
         </li>
 
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+        <li class="treeview <?php if ($page == 'vendor'){echo "active";}?>">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Vendor</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li <?php if ($subpage == 'addvendor'){echo 'class="active"';}?>><a href="addVendors"><i class="fa fa-circle-o"></i> Manage Vendor </a></li>
+          </ul>
+        </li>
+
         <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
