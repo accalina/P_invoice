@@ -58,7 +58,8 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                  <button type="submit" form="detailform" class="btn btn-success">Lihat Detail</button>
+                  <a id="adddetail" href=""><button type="button" class="btn btn-success">Tambah Detail Invoice</button></a>
+                  <button type="submit" form="detailform" class="btn btn-primary">Lihat Detail</button>
                 </div>
               </div>
               <!-- /.modal-content -->
@@ -106,6 +107,7 @@
         $('#emailvendor').val(email);
         $('#jatuhtempo').val(tempo);
         $('#noakun').val(noakun);
+        $('#adddetail').attr('href','addInvoice_detail?id='+vendorid)
         $('#infomodal').click()
       }
     </script>

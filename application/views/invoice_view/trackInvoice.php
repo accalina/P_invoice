@@ -4,7 +4,7 @@
     <section class="content-header">
       <h1>
         Invoice
-        <small>#007612</small>
+        <small>#<?php if ($cart[0]['invoice']){ echo str_pad($cart[0]['invoice'], 6, '0', STR_PAD_LEFT); } else { redirect('addinvoice_detail?id='.$dbdata['id']); } ?></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -19,7 +19,7 @@
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-globe"></i> AdminLTE, Inc.
+            <i class="fa fa-globe"></i> <?= $userdata['corpName']?>, Inc.
             <small class="pull-right">Date: <?php echo date('d/m/Y');  ?></small>
           </h2>
         </div>
@@ -48,7 +48,7 @@
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
-          <b>Invoice #<?= $dbdata['id']?></b><br>
+          <b>Invoice #<?= str_pad($dbdata['id'], 6, '0', STR_PAD_LEFT);?></b><br>
           <br>
           <b>Payment Due:</b> <?= $dbdata['jatuhTempo']?><br>
           <b>Account:</b> <?= $dbdata['noAkun']?>
@@ -95,8 +95,7 @@
           <img src="<?= base_url(); ?>/assets/dist/img/credit/paypal2.png" alt="Paypal">
 
           <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
-            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg
-            dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
+            Payment must be done before Due Date to avoid any extra charges
           </p>
         </div>
         <!-- /.col -->

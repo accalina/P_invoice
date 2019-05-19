@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2019 at 09:01 AM
+-- Generation Time: May 19, 2019 at 06:15 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -40,7 +40,9 @@ CREATE TABLE `invoices` (
 --
 
 INSERT INTO `invoices` (`id`, `vendor_id`, `jatuhTempo`, `noAkun`) VALUES
-(1, 1, '06/10/2019', 16833127);
+(1, 1, '06/10/2019', 16833127),
+(2, 4, '2019-11-22', 8876884),
+(3, 2, '2019-12-20', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -55,6 +57,16 @@ CREATE TABLE `invoice_detail` (
   `description` text NOT NULL,
   `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `invoice_detail`
+--
+
+INSERT INTO `invoice_detail` (`no`, `invoice`, `activity`, `description`, `harga`) VALUES
+(1, 1, 'Pembuatan Perangkat Lunak', 'Contoh Pembuatan System Tracking Tagihan (Invoice)', 25000000),
+(2, 1, 'Cicilan Pembayaran', 'Cicilan Pembayaran Perangkat Lunak System dibayar dimuka (Down Payment)', -10000000),
+(3, 1, 'Cicilan Pembayaran', 'Cicilan Pembayaran 2', -2000000),
+(6, 2, 'Customer Care', 'Memberi Pelayanan kepada Customer dalam tanggang waktu yang disepakati', 12000000);
 
 -- --------------------------------------------------------
 
@@ -111,13 +123,13 @@ ALTER TABLE `vendors`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `invoice_detail`
 --
 ALTER TABLE `invoice_detail`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `vendors`

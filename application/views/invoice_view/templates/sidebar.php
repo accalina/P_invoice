@@ -27,7 +27,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview <?php if ($page == 'track'){echo "active";}?>">
+        <li class="treeview <?php if ($page == 'dashboard'){echo "active";}?>">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
@@ -35,7 +35,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li <?php if ($subpage == 'track'){echo 'class="active"';}?>><a href="<?= base_url(); ?>"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+            <li <?php if ($subpage == 'dashboard'){echo 'class="active"';}?>><a href="<?= base_url(); ?>"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
           </ul>
         </li>
 
